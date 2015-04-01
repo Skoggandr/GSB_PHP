@@ -21,12 +21,30 @@
 				include("vues/v_connexion.php");
 			}
 			else{
-				$id = $visiteur['id'];
-				$nom =  $visiteur['nom'];
-				$prenom = $visiteur['prenom'];
-				connecter($id,$nom,$prenom);
-				include("vues/v_sommaire.php");
-				include("vues/v_accueil.php");  
+				$idType = $visiteur['idtype'];
+				if($idType == "v")
+				{
+					$id = $visiteur['id'];
+					$nom =  $visiteur['nom'];
+					$prenom = $visiteur['prenom'];
+					connecter($id,$nom,$prenom, $idType);
+					include("vues/v_sommaire.php");
+					include("vues/v_accueil.php");  
+				}
+				else if($idType == "s")
+				{
+					$id = $visiteur['id'];
+					$nom =  $visiteur['nom'];
+					$prenom = $visiteur['prenom'];
+					connecter($id,$nom,$prenom, $idType);
+					
+					include("vues/v_accueil.php");
+				
+				}
+				else if($idType == "c")
+				{
+					
+				}
 			}
 			break;
 		}
