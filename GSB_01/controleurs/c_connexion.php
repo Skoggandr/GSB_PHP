@@ -22,12 +22,13 @@
 			}
 			else{
 				$idType = $visiteur['idtype'];
+				$typeUtilisateur = $visiteur['typeutilisateur'];
 				if($idType == "v")
 				{
 					$id = $visiteur['id'];
 					$nom =  $visiteur['nom'];
 					$prenom = $visiteur['prenom'];
-					connecter($id,$nom,$prenom, $idType);
+					connecter($id,$nom,$prenom, $typeUtilisateur);
 					include("vues/v_sommaire.php");
 					include("vues/v_accueil.php");  
 				}
@@ -36,7 +37,7 @@
 					$id = $visiteur['id'];
 					$nom =  $visiteur['nom'];
 					$prenom = $visiteur['prenom'];
-					connecter($id,$nom,$prenom, $idType);
+					connecter($id,$nom,$prenom, $typeUtilisateur);
 					
 					include("vues/v_accueil.php");
 				
