@@ -14,6 +14,7 @@
 			$login = $_REQUEST['login'];
 			$mdp = $_REQUEST['mdp'];
 			$visiteur = $pdo->getInfosVisiteur($login,$mdp);
+			var_dump($visiteur);
 			if(!is_array( $visiteur)){
 				include("vues/v_entete_contenu.php");
 				ajouterErreur("Login ou mot de passe incorrect");

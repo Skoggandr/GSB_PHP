@@ -16,7 +16,7 @@
  */
 
 class PdoGsb{
-      	private static $serveur = 'mysql:host=192.168.1.22';
+      	private static $serveur = 'mysql:host=localhost';
       	private static $bdd = 'dbname=gsb_01';
       	private static $user = 'root' ;
       	private static $mdp = 'gsb' ;
@@ -53,11 +53,11 @@ class PdoGsb{
  * @return l'id, le nom et le prénom sous la forme d'un tableau associatif
 */
 	public function getInfosVisiteur($login, $mdp){
-		$req = "SELECT id, nom, prenom, idtype, libelle, login
-				FROM utilisateur, typeutilisateur
+		$req = "SELECT id, nom, prenom, u.idtype, libelle, login
+				FROM utilisateur as u, typeutilisateur as t
 				WHERE login = :login
 				AND mdp = :mdp
-				AND typeutilisateur.idtype = utilisateur.idtype";
+				AND t.idtype = u.idtype";
 		$rs = PdoGsb::$monPdo->prepare($req);
 		$rs->bindParam(":login",$login);
 		$rs->bindParam(":mdp",$mdp);
