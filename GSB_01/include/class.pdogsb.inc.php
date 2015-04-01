@@ -33,6 +33,7 @@ class PdoGsb{
 	public function _destruct(){
 		PdoGsb::$monPdo = null;
 	}
+	
 /**
  * Fonction statique qui crée l'unique instance de la classe
  * Appel : $instancePdoGsb = PdoGsb::getPdoGsb();
