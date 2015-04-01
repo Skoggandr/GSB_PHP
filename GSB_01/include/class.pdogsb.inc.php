@@ -17,7 +17,7 @@
 
 class PdoGsb{
       	private static $serveur = 'mysql:host=localhost';
-      	private static $bdd = 'dbname=gsb';
+      	private static $bdd = 'dbname=gsb_01';
       	private static $user = 'root' ;
       	private static $mdp = '' ;
 		private static $monPdo;
@@ -52,7 +52,7 @@ class PdoGsb{
  * @return l'id, le nom et le prénom sous la forme d'un tableau associatif
 */
 	public function getInfosVisiteur($login, $mdp){
-		$req = "select id, nom, prenom, login from visiteur where login='$login' and mdp='$mdp';";
+		$req = "select id, nom, prenom, login from utilisateur where login='$login' and mdp='$mdp';";
 		$rs = PdoGsb::$monPdo->query($req);
 		$ligne = $rs->fetch();
 		return $ligne;
